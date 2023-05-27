@@ -19,12 +19,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('about', function() {
-//     return view('about');
-// });
-
 Route::get('about', [PageController::class, 'about'])->name('about.about');
 
 Route::get('articles', [ArticleController::class, 'index'])->name('articles.index');
 
+Route::get('articles/create', [ArticleController::class, 'create'])->name('articles.create');
+
+Route::post('articles', [ArticleController::class, 'store'])->name('articles.store');
+
 Route::get('articles/{id}', [ArticleController::class, 'show'])->name('articles.show');
+

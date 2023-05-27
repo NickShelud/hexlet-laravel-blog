@@ -10,10 +10,13 @@
         <script src="{{ asset('js/app.js') }}"></script>
     </head>
     <body>
-        <div>
-            <a href="{{route('about.about')}}">About</a>
-            <a href="{{route('articles.index')}}">Articles</a>
+        <nav class="navbar navbar-expend-lg navbar-dark bg-dark">
+        <div class="container-fluid d-flex justify-content-start px-3">
+            <a href="{{route('about.about')}}" class="text-white nav-link p-2">About</a>
+            <a href="{{route('articles.index')}}" class="text-white nav-link p-2">Articles</a>
+            <a href="{{route('articles.create')}}" class="text-white nav-link p-2">Create</a>
         </div>
+        </nav>
         <div class="container mt-4">
             <h1>@yield('header')</h1>
             <div>
