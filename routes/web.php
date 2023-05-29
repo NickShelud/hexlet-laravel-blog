@@ -29,3 +29,7 @@ Route::post('articles', [ArticleController::class, 'store'])->name('articles.sto
 
 Route::get('articles/{id}', [ArticleController::class, 'show'])->name('articles.show');
 
+Route::get('articles/{id}/edit', [ArticleController::class, 'edit'])->name('articles.edit');
+
+Route::patch('articles/{id}', [ArticleController::class, 'update'])->name('articles.update');
+

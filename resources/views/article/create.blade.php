@@ -14,6 +14,7 @@
     {{ Form::text('name') }}<br>
     {{ Form::label('body', 'Содержание') }}
     {{ Form::textarea('body') }}<br>
+    @include('article.form')
     {{ Form::submit('Создать') }}
 {{ Form::close() }}
 @endsection
