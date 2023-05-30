@@ -51,17 +51,29 @@ class ArticleController extends Controller
     }
 
     public function update(Request $request, $id)
-{
-    $article = Article::findOrFail($id);
-    $data = $this->validate($request, [
-        'name' => 'required|unique:articles,name,' . $article->id,
-        'body' => 'required|min:100',
-    ]);
+    {
+        $article = Article::findOrFail($id);
+        $data = $this->validate($request, [
+            'name' => 'required|unique:articles,name,' . $article->id,
+            'body' => 'required|min:100',
+        ]);
 
-    $article->fill($data);
-    $article->save();
-    $request->session()->flash('status', 'Article was update');
-    return redirect()
-        ->route('articles.index');
-}
+        $article->fill($data);
+        $article->save();
+        $request->session()->flash('status', 'Article was update');
+        return redirect()
+            ->route('articles.index');
+    }
+
+    public function destroy($id)
+    {
+        $article = Article::find($id);
+
+        if ($article) {
+            $article->delete();
+        }
+        
+        //$request->session()->flash('status', 'Article was delite');
+        return redirect()->route('articles.index');
+    }
 }
